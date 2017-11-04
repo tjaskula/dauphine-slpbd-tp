@@ -38,9 +38,20 @@ spark-shell
 1. [Here is the full documentation of Spark 2.2](https://spark.apache.org/docs/latest/rdd-programming-guide.html)
 ## Example
 ``` scala
-/* Word count example :
-- Reading a file copied in your Unix session on the cluster (using the scp alias defined above):
-*/
+// Map example
+val rdd = sc.parallelize(List("Hello Joe", "How are you"))
+val fm = rdd.map(_.split(" "))
+fm.collect()
+// Result:
+// Array[Array[String]] = Array(Array(Hello, Joe), Array(How, are, you))
+
+// FlatMap example, it returns a Seq instead of a value
+val rdd = sc.parallelize(List("Hello Joe", "How are you"))
+val fm = rdd.flatMap(str=>str.split(" "))
+fm.collect()
+// Result:
+// Array[String] = Array(Spark, is, awesome, It, is, fun)
+
 // Loading a file from the cluster
 val orders = sc.textFile("file:///home/cluster/felfassi/text.txt")
 
@@ -48,6 +59,7 @@ val mappers_output = text.flatMap(x => x.split("\\W+")).lower.filter(x => x.matc
 
 val reduced_count = mappers_output.reduceByKey((a,b) => a + b)
 
-// Use collect() to trigger computations (transformations are lazily evaluated), it will returns a value back to the Master node
+/* Use collect() to trigger computations (transformations are lazily evaluated),
+it will returns a value back to the Master node */
 reduced_count.collect
 ```
