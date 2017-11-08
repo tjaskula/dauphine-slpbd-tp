@@ -53,6 +53,7 @@ fm.collect()
 // Result:
 // Array[String] = Array(Hello, Joe, How, are, you)
 
+// Word count example:
 // Loading a file from the cluster
 val text = sc.textFile("file:///home/cluster/felfassi/text.txt")
 
