@@ -39,3 +39,12 @@ val order_map = order_file.map(_.split(",")).map(a => (a(0), a(1)))
 // We join the two RDD on the key
 val cust_orders = cust_map.join(order_map)
 cust_orders.foreach(println(_))
+
+/* q5:
+SELECT C.cid, O.total FROM Customer C LEFT OUTER JOIN ON Order O ON C.cid=O.cid WHERE C.name LIKE ‘O%’ and C.cid=O.cid
+*/
+val cust_map = cust_file.map(_.split(",")).filter(x => x(2).startsWith("O")).map(a => (a(0), a(2))).distinct
+val order_map = order_file.map(_.split(",")).map(a => (a(0), a(1)))
+val cust_orders = cust_map.leftOuterJoin(order_map)
+cust_orders.foreach(println(_))
+
