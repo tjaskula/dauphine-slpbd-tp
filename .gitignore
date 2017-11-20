@@ -2,4 +2,4 @@
 TP2/universal_sink.png
 metastore_db
 derby.log
-.DS_Store
+*.DS_Store

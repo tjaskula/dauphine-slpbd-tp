@@ -9,6 +9,6 @@ val opentriangles= g.join(gInverse)
 val trianglesToClose = opentriangles.map(x => (x._2 , x))
 // trianglesToClose.collect()
 // res4: Array[((Int, Int), (Int, (Int, Int)))] = Array(((2,1),(4,(2,1))), ((4,2),(1,(4,2))), ((3,2),(5,(3,2))), ((1,3),(2,(1,3))), ((1,4),(2,(1,4))), ((5,3),(2,(5,3))), ((5,4),(2,(5,4))), ((2,5),(3,(2,5))))
-val triangles = trianglesToClose.join(g.map(x => (x, 1)))
+val triangles = trianglesToClose.join(g.map(x => (x, 1))).map(x => (x._2._1, x._2._2))
 
 triangles.count()
