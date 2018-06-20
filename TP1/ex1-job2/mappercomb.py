@@ -23,5 +23,3 @@ for line in sys.stdin:
 # observe that the pairs are emitted once the split has been consumed
 for x in dict.keys():
     print '%s\t%s' % (x, dict[x])
-
-

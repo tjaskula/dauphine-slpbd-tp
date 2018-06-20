@@ -1,5 +1,6 @@
 *.pyc
 TP2/universal_sink.png
+TP2/tp1.scala
 metastore_db
 derby.log
 *.DS_Store

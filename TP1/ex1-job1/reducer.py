@@ -8,7 +8,7 @@ word = None
 
 # input comes from STDIN
 for line in sys.stdin:
-    
+
     # parse the input we got from mapper.py
     pair = line.split('\t')
     word = pair[0]
@@ -26,7 +26,7 @@ for line in sys.stdin:
 
     # this IF-switch only works because Hadoop sorts map output
     # by key (here: word) before it is passed to the reducer
-    # recall that no ordering is ensured by deafult Hadoop on the value component (here count) 
+    # recall that no ordering is ensured by deafult Hadoop on the value component (here count)
     if current_word == word:
         current_count += count
     else:

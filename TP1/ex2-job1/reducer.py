@@ -9,9 +9,7 @@ url = None
 # input comes from STDIN
 for line in sys.stdin:
     # parse the input we got from mapper.py
-    pair = line.split('\t')
-    url = pair[0]
-    time = pair[1]
+    url, time = line.split('\t')
     # here count can be >1 since the mapper has performed local aggregation
     # convert time (currently a string) to int
     try:

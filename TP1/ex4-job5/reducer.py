@@ -26,4 +26,3 @@ for cid_c in dict_customers.keys():
     else:
         for total in dict_orders[cid_c]:
             print '{}\t{}'.format(cid_c, total)
-
