@@ -1,6 +1,6 @@
 // data
-val cust_file = sc.textFile("file:///Users/faouz/Documents/Cours/Dauphine M2/TP1/ex4-job3/data/Customer.txt")
-val order_file = sc.textFile("file:///Users/faouz/Documents/Cours/Dauphine M2/TP1/ex4-job3/data/Order.txt")
+val cust_file = sc.textFile("hdfs:///home/hadoop/Customer.txt")
+val order_file = sc.textFile("hdfs:///Order.txt")
 
 /* q1:
 SELECT name FROM Customer WHERE month(startDate)=7
@@ -38,7 +38,7 @@ val cust_map = cust_file.map(_.split(",")).filter(x => x(2).startsWith("O")).map
 val order_map = order_file.map(_.split(",")).map(a => (a(0), a(1)))
 // We join the two RDD on the key
 val cust_orders = cust_map.join(order_map)
-cust_orders.foreach(println(_))
+cust_orders.collect()
 
 /* q5:
 SELECT C.cid, O.total FROM Customer C LEFT OUTER JOIN ON Order O ON C.cid=O.cid WHERE C.name LIKE ‘O%’ and C.cid=O.cid
