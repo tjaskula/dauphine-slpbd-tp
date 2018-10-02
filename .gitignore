@@ -1,12 +1,6 @@
 *.pyc
 TP2/universal_sink.png
 TP2/tp1.scala
-TP1/ex1-job1/mapper.py
-TP1/ex1-job1/reducer.py
-TP1/ex1-job2/mappercomb.py
-TP1/ex1-job2/reducer.py
-TP1/ex2-job1/mapper.py
-TP1/ex2-job1/reducer.py
 metastore_db
 derby.log
 *.DS_Store
